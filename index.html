@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VULKN Pricing</title>
     <style>
-        body { font-family: -apple-system, sans-serif; padding: 20px; max-width: 1400px; margin: 0 auto; }
-        h1 { text-align: center; }
-        table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        th { background: #333; color: white; padding: 8px; text-align: left; position: sticky; top: 0; }
-        td { padding: 6px 8px; border-bottom: 1px solid #ddd; }
-        tr:nth-child(even) { background: #f9f9f9; }
+        body { font-family: -apple-system, sans-serif; padding: 20px; max-width: 1600px; margin: 0 auto; background: #0f172a; color: #e2e8f0; }
+        h1 { text-align: center; color: #f97316; }
+        h2 { color: #94a3b8; margin-top: 30px; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; background: #1e293b; border-radius: 8px; overflow: hidden; }
+        th { background: #f97316; color: white; padding: 10px; text-align: left; position: sticky; top: 0; }
+        td { padding: 8px 10px; border-bottom: 1px solid #334155; }
+        tr:hover { background: #334155; }
         .cat-corporate { border-left: 4px solid #3b82f6; }
         .cat-sales { border-left: 4px solid #22c55e; }
         .cat-marketing { border-left: 4px solid #f59e0b; }
@@ -19,26 +20,64 @@
         .cat-code { border-left: 4px solid #6366f1; }
         .cat-extras { border-left: 4px solid #64748b; }
         .num { text-align: right; font-family: monospace; }
-        .summary { display: flex; gap: 20px; justify-content: center; margin: 20px 0; }
-        .card { background: #f1f5f9; padding: 15px 25px; border-radius: 8px; text-align: center; }
-        .card h3 { margin: 0 0 5px 0; }
-        .card .price { font-size: 24px; font-weight: bold; }
+        .credits { color: #22c55e; font-weight: bold; }
+        .summary { display: flex; gap: 20px; justify-content: center; margin: 30px 0; flex-wrap: wrap; }
+        .card { background: linear-gradient(135deg, #1e293b, #334155); padding: 20px 30px; border-radius: 12px; text-align: center; border: 1px solid #475569; min-width: 200px; }
+        .card h3 { margin: 0 0 10px 0; color: #f97316; }
+        .card .price { font-size: 28px; font-weight: bold; color: white; }
+        .card .credits-total { font-size: 20px; color: #22c55e; margin: 10px 0; }
+        .card .details { font-size: 12px; color: #94a3b8; }
+        .info-box { background: #1e293b; border: 1px solid #f97316; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .info-box h3 { color: #f97316; margin-top: 0; }
+        .info-box ul { margin: 0; padding-left: 20px; }
+        .info-box li { margin: 8px 0; }
+        .legend { display: flex; gap: 15px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 5px; font-size: 12px; }
+        .legend-color { width: 16px; height: 16px; border-radius: 3px; }
     </style>
 </head>
 <body>
-    <h1>🔥 VULKN Skills Pricing</h1>
+    <h1>🔥 VULKN Skills Pricing + Créditos</h1>
     
     <div class="summary">
         <div class="card">
             <h3>Starter</h3>
             <div class="price">$20,000 MXN</div>
-            <div>Costo API: ~$32 USD | Margen: 97%</div>
+            <div class="credits-total">🪙 25,000 créditos/mes</div>
+            <div class="details">Budget: $250 USD | Margen: 78%</div>
         </div>
         <div class="card">
             <h3>Pro</h3>
             <div class="price">$40,000 MXN</div>
-            <div>Costo API: ~$185 USD | Margen: 92%</div>
+            <div class="credits-total">🪙 50,000 créditos/mes</div>
+            <div class="details">Budget: $500 USD | Margen: 78%</div>
         </div>
+        <div class="card" style="border-color: #22c55e;">
+            <h3>💡 Valor del Crédito</h3>
+            <div class="price" style="font-size: 22px;">1 crédito = $0.01 USD</div>
+            <div class="details" style="margin-top: 10px;">≈ $0.17 MXN por crédito</div>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h3>🎯 Cómo Funciona el Tracking</h3>
+        <ul>
+            <li><strong>reserve_usage()</strong> — Antes de llamar API, reservamos los créditos atómicamente</li>
+            <li><strong>confirm_usage()</strong> — Si la llamada fue exitosa, confirmamos el gasto</li>
+            <li><strong>cancel_usage()</strong> — Si falla, liberamos la reserva</li>
+            <li><strong>Alertas:</strong> 80% warning → 100% soft-block → 110% hard-block</li>
+            <li><strong>Dashboard:</strong> El cliente puede ver su consumo en tiempo real</li>
+        </ul>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item"><div class="legend-color" style="background: #3b82f6;"></div> Corporativo</div>
+        <div class="legend-item"><div class="legend-color" style="background: #22c55e;"></div> Ventas</div>
+        <div class="legend-item"><div class="legend-color" style="background: #f59e0b;"></div> Marketing</div>
+        <div class="legend-item"><div class="legend-color" style="background: #a855f7;"></div> Research</div>
+        <div class="legend-item"><div class="legend-color" style="background: #ec4899;"></div> Diseño</div>
+        <div class="legend-item"><div class="legend-color" style="background: #6366f1;"></div> Código</div>
+        <div class="legend-item"><div class="legend-color" style="background: #64748b;"></div> Extras</div>
     </div>
 
     <table>
@@ -48,66 +87,87 @@
                 <th>API/Servicio</th>
                 <th>Unidad</th>
                 <th>$/Unidad</th>
+                <th>Créditos/op</th>
                 <th>Starter Límite</th>
-                <th>Starter $</th>
+                <th>Starter Créditos</th>
                 <th>Pro Límite</th>
-                <th>Pro $</th>
+                <th>Pro Créditos</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="cat-corporate"><td>CRM</td><td>Supabase</td><td>registros</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
-            <tr class="cat-corporate"><td>Email Drafter</td><td>Gmail API + Anthropic</td><td>emails</td><td class="num">$0.002</td><td class="num">200</td><td class="num">$0.40</td><td class="num">1000</td><td class="num">$2.00</td></tr>
-            <tr class="cat-corporate"><td>Spreadsheets</td><td>Google Sheets API</td><td>ops</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
-            <tr class="cat-corporate"><td>Reuniones</td><td>Google Calendar API</td><td>eventos</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
-            <tr class="cat-corporate"><td>Citas</td><td>Calendar + Twilio WA</td><td>citas</td><td class="num">$0.005</td><td class="num">100</td><td class="num">$0.50</td><td class="num">500</td><td class="num">$2.50</td></tr>
-            <tr class="cat-corporate"><td>SAT/CFDI</td><td>Facturapi.io</td><td>facturas</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
-            <tr class="cat-corporate"><td>Presentaciones</td><td>Anthropic + Marp</td><td>slides</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">100</td><td class="num">$1.00</td></tr>
-            <tr class="cat-corporate"><td>Reportes</td><td>Anthropic + Sheets</td><td>reportes</td><td class="num">$0.02</td><td class="num">20</td><td class="num">$0.40</td><td class="num">100</td><td class="num">$2.00</td></tr>
-            <tr class="cat-corporate"><td>Gestión Proyectos</td><td>Notion API</td><td>tareas</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
-            <tr class="cat-corporate"><td>Atención Cliente</td><td>Twilio WA + Anthropic</td><td>convos</td><td class="num">$0.01</td><td class="num">300</td><td class="num">$3.00</td><td class="num">1500</td><td class="num">$15.00</td></tr>
-            <tr class="cat-corporate"><td>Contabilidad</td><td>Sheets + Anthropic</td><td>registros</td><td class="num">$0.005</td><td class="num">200</td><td class="num">$1.00</td><td class="num">1000</td><td class="num">$5.00</td></tr>
-            <tr class="cat-corporate"><td>Legal</td><td>Anthropic + Docs</td><td>docs</td><td class="num">$0.02</td><td class="num">10</td><td class="num">$0.20</td><td class="num">50</td><td class="num">$1.00</td></tr>
-            <tr class="cat-corporate"><td>Dashboard</td><td>QuickChart.io</td><td>gráficas</td><td class="num">$0.00</td><td class="num">50</td><td class="num">$0.00</td><td class="num">200</td><td class="num">$0.00</td></tr>
-            <tr class="cat-corporate"><td>Recordatorios</td><td>Telegram/Twilio WA</td><td>msgs</td><td class="num">$0.005</td><td class="num">100</td><td class="num">$0.50</td><td class="num">500</td><td class="num">$2.50</td></tr>
-            <tr class="cat-sales"><td>WhatsApp Business</td><td>Twilio WhatsApp API</td><td>msgs</td><td class="num">$0.005</td><td class="num">500</td><td class="num">$2.50</td><td class="num">3000</td><td class="num">$15.00</td></tr>
-            <tr class="cat-sales"><td>Recordatorio Pagos</td><td>Twilio WA + Anthropic</td><td>cobros</td><td class="num">$0.01</td><td class="num">100</td><td class="num">$1.00</td><td class="num">500</td><td class="num">$5.00</td></tr>
-            <tr class="cat-sales"><td>Cold Outreach</td><td>Gmail + Anthropic</td><td>emails</td><td class="num">$0.003</td><td class="num">100</td><td class="num">$0.30</td><td class="num">1000</td><td class="num">$3.00</td></tr>
-            <tr class="cat-sales"><td>Llamadas Voz</td><td>Twilio Voice + ElevenLabs</td><td>mins</td><td class="num">$0.05</td><td class="num">30</td><td class="num">$1.50</td><td class="num">300</td><td class="num">$15.00</td></tr>
-            <tr class="cat-sales"><td>Propuestas</td><td>Anthropic + PDFKit</td><td>props</td><td class="num">$0.03</td><td class="num">20</td><td class="num">$0.60</td><td class="num">100</td><td class="num">$3.00</td></tr>
-            <tr class="cat-sales"><td>Investigación Leads</td><td>Firecrawl + Anthropic</td><td>leads</td><td class="num">$0.01</td><td class="num">50</td><td class="num">$0.50</td><td class="num">300</td><td class="num">$3.00</td></tr>
-            <tr class="cat-sales"><td>Guiones Llamada</td><td>Anthropic</td><td>guiones</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">150</td><td class="num">$1.50</td></tr>
-            <tr class="cat-marketing"><td>Reels Guiones</td><td>Anthropic</td><td>guiones</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">150</td><td class="num">$1.50</td></tr>
-            <tr class="cat-marketing"><td>ManyChat</td><td>ManyChat API</td><td>flows</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
-            <tr class="cat-marketing"><td>Copy</td><td>Anthropic</td><td>textos</td><td class="num">$0.005</td><td class="num">200</td><td class="num">$1.00</td><td class="num">1000</td><td class="num">$5.00</td></tr>
-            <tr class="cat-marketing"><td>SEO</td><td>Firecrawl + Anthropic</td><td>análisis</td><td class="num">$0.02</td><td class="num">30</td><td class="num">$0.60</td><td class="num">150</td><td class="num">$3.00</td></tr>
-            <tr class="cat-marketing"><td>Ads Manager</td><td>Meta API + Anthropic</td><td>campañas</td><td class="num">$0.05</td><td class="num">10</td><td class="num">$0.50</td><td class="num">50</td><td class="num">$2.50</td></tr>
-            <tr class="cat-marketing"><td>Estrategia</td><td>Anthropic</td><td>estrategias</td><td class="num">$0.02</td><td class="num">20</td><td class="num">$0.40</td><td class="num">100</td><td class="num">$2.00</td></tr>
-            <tr class="cat-marketing"><td>Instagram</td><td>IG Graph API + Anthropic</td><td>posts</td><td class="num">$0.01</td><td class="num">50</td><td class="num">$0.50</td><td class="num">250</td><td class="num">$2.50</td></tr>
-            <tr class="cat-marketing"><td>LinkedIn</td><td>LinkedIn API + Anthropic</td><td>posts</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">150</td><td class="num">$1.50</td></tr>
-            <tr class="cat-marketing"><td>Facebook</td><td>FB Graph API + Anthropic</td><td>posts</td><td class="num">$0.01</td><td class="num">50</td><td class="num">$0.50</td><td class="num">250</td><td class="num">$2.50</td></tr>
-            <tr class="cat-marketing"><td>Google Ads</td><td>Google Ads API + Anthropic</td><td>campañas</td><td class="num">$0.05</td><td class="num">10</td><td class="num">$0.50</td><td class="num">50</td><td class="num">$2.50</td></tr>
-            <tr class="cat-marketing"><td>Imágenes AI</td><td>Gemini Imagen 3</td><td>imgs</td><td class="num">$0.03</td><td class="num">30</td><td class="num">$0.90</td><td class="num">200</td><td class="num">$6.00</td></tr>
-            <tr class="cat-marketing"><td>Email Marketing</td><td>Brevo/Mailchimp</td><td>campañas</td><td class="num">$0.00</td><td class="num">20</td><td class="num">$0.00</td><td class="num">100</td><td class="num">$0.00</td></tr>
-            <tr class="cat-marketing"><td>Analytics</td><td>GA4 API + Anthropic</td><td>reportes</td><td class="num">$0.02</td><td class="num">20</td><td class="num">$0.40</td><td class="num">100</td><td class="num">$2.00</td></tr>
-            <tr class="cat-research"><td>Búsqueda Web</td><td>Firecrawl API</td><td>páginas</td><td class="num">$0.001</td><td class="num">500</td><td class="num">$0.50</td><td class="num">3000</td><td class="num">$3.00</td></tr>
-            <tr class="cat-research"><td>Investigación Mercado</td><td>Firecrawl + Anthropic</td><td>invest</td><td class="num">$0.02</td><td class="num">30</td><td class="num">$0.60</td><td class="num">150</td><td class="num">$3.00</td></tr>
-            <tr class="cat-research"><td>Google Places</td><td>Places API (New)</td><td>búsquedas</td><td class="num">$0.017</td><td class="num">50</td><td class="num">$0.85</td><td class="num">300</td><td class="num">$5.10</td></tr>
-            <tr class="cat-research"><td>Investigación Personas</td><td>Firecrawl + Anthropic</td><td>perfiles</td><td class="num">$0.02</td><td class="num">30</td><td class="num">$0.60</td><td class="num">150</td><td class="num">$3.00</td></tr>
-            <tr class="cat-research"><td>Datos Académico</td><td>Firecrawl + arXiv</td><td>papers</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">150</td><td class="num">$1.50</td></tr>
-            <tr class="cat-research"><td>Resumen</td><td>Anthropic + Whisper</td><td>resúmenes</td><td class="num">$0.02</td><td class="num">50</td><td class="num">$1.00</td><td class="num">250</td><td class="num">$5.00</td></tr>
-            <tr class="cat-design"><td>Imagen Design</td><td>Gemini/DALL-E</td><td>imgs</td><td class="num">$0.04</td><td class="num">20</td><td class="num">$0.80</td><td class="num">150</td><td class="num">$6.00</td></tr>
-            <tr class="cat-design"><td>Video AI</td><td>Gemini Veo 3.1</td><td>videos</td><td class="num">$0.15</td><td class="num">10</td><td class="num">$1.50</td><td class="num">75</td><td class="num">$11.25</td></tr>
-            <tr class="cat-design"><td>Branding</td><td>Anthropic + Gemini</td><td>proyectos</td><td class="num">$0.10</td><td class="num">5</td><td class="num">$0.50</td><td class="num">25</td><td class="num">$2.50</td></tr>
-            <tr class="cat-design"><td>Modelo 3D</td><td>Meshy.ai</td><td>modelos</td><td class="num">$0.20</td><td class="num">5</td><td class="num">$1.00</td><td class="num">30</td><td class="num">$6.00</td></tr>
-            <tr class="cat-code"><td>Full Stack</td><td>Anthropic (heavy)</td><td>proyectos</td><td class="num">$1.00</td><td class="num">3</td><td class="num">$3.00</td><td class="num">15</td><td class="num">$15.00</td></tr>
-            <tr class="cat-code"><td>Figma</td><td>Figma API + Anthropic</td><td>diseños</td><td class="num">$0.05</td><td class="num">10</td><td class="num">$0.50</td><td class="num">50</td><td class="num">$2.50</td></tr>
-            <tr class="cat-code"><td>Testing QA</td><td>Anthropic + Playwright</td><td>tests</td><td class="num">$0.03</td><td class="num">30</td><td class="num">$0.90</td><td class="num">150</td><td class="num">$4.50</td></tr>
-            <tr class="cat-code"><td>DevOps</td><td>Anthropic + Railway/Vercel</td><td>deploys</td><td class="num">$0.10</td><td class="num">10</td><td class="num">$1.00</td><td class="num">50</td><td class="num">$5.00</td></tr>
-            <tr class="cat-code"><td>Conecta</td><td>Anthropic + REST APIs</td><td>integraciones</td><td class="num">$0.20</td><td class="num">5</td><td class="num">$1.00</td><td class="num">30</td><td class="num">$6.00</td></tr>
-            <tr class="cat-extras"><td>Cobranza</td><td>Twilio WA + Anthropic</td><td>cobros</td><td class="num">$0.02</td><td class="num">100</td><td class="num">$2.00</td><td class="num">500</td><td class="num">$10.00</td></tr>
-            <tr class="cat-extras"><td>Inventarios</td><td>Supabase + Anthropic</td><td>ops</td><td class="num">$0.005</td><td class="num">200</td><td class="num">$1.00</td><td class="num">1000</td><td class="num">$5.00</td></tr>
+            <tr class="cat-corporate"><td>CRM</td><td>Supabase</td><td>registros</td><td class="num">$0.00</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td></tr>
+            <tr class="cat-corporate"><td>Email Drafter</td><td>Gmail API + Claude</td><td>emails</td><td class="num">$0.002</td><td class="num credits">0.2</td><td class="num">1,500</td><td class="num credits">300</td><td class="num">3,000</td><td class="num credits">600</td></tr>
+            <tr class="cat-corporate"><td>Spreadsheets</td><td>Google Sheets API</td><td>ops</td><td class="num">$0.00</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td></tr>
+            <tr class="cat-corporate"><td>Reuniones</td><td>Google Calendar API</td><td>eventos</td><td class="num">$0.00</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td></tr>
+            <tr class="cat-corporate"><td>Citas</td><td>Calendar + Twilio WA</td><td>citas</td><td class="num">$0.005</td><td class="num credits">0.5</td><td class="num">800</td><td class="num credits">400</td><td class="num">1,500</td><td class="num credits">750</td></tr>
+            <tr class="cat-corporate"><td>SAT/CFDI</td><td>Facturapi.io</td><td>facturas</td><td class="num">$0.00</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td></tr>
+            <tr class="cat-corporate"><td>Presentaciones</td><td>Claude + Marp</td><td>slides</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">250</td><td class="num credits">250</td><td class="num">500</td><td class="num credits">500</td></tr>
+            <tr class="cat-corporate"><td>Reportes</td><td>Claude + Sheets</td><td>reportes</td><td class="num">$0.02</td><td class="num credits">2</td><td class="num">150</td><td class="num credits">300</td><td class="num">300</td><td class="num credits">600</td></tr>
+            <tr class="cat-corporate"><td>Gestión Proyectos</td><td>Notion API</td><td>tareas</td><td class="num">$0.00</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td></tr>
+            <tr class="cat-corporate"><td>Atención Cliente</td><td>Twilio WA + Claude</td><td>convos</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">2,000</td><td class="num credits">2,000</td><td class="num">4,000</td><td class="num credits">4,000</td></tr>
+            <tr class="cat-corporate"><td>Contabilidad</td><td>Sheets + Claude</td><td>registros</td><td class="num">$0.005</td><td class="num credits">0.5</td><td class="num">1,500</td><td class="num credits">750</td><td class="num">3,000</td><td class="num credits">1,500</td></tr>
+            <tr class="cat-corporate"><td>Legal</td><td>Claude + Docs</td><td>docs</td><td class="num">$0.02</td><td class="num credits">2</td><td class="num">75</td><td class="num credits">150</td><td class="num">150</td><td class="num credits">300</td></tr>
+            <tr class="cat-corporate"><td>Dashboard</td><td>QuickChart.io</td><td>gráficas</td><td class="num">$0.00</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td></tr>
+            <tr class="cat-corporate"><td>Recordatorios</td><td>Telegram/Twilio WA</td><td>msgs</td><td class="num">$0.005</td><td class="num credits">0.5</td><td class="num">800</td><td class="num credits">400</td><td class="num">1,500</td><td class="num credits">750</td></tr>
+            <tr class="cat-sales"><td>WhatsApp Business</td><td>Twilio WhatsApp API</td><td>msgs</td><td class="num">$0.005</td><td class="num credits">0.5</td><td class="num">4,000</td><td class="num credits">2,000</td><td class="num">8,000</td><td class="num credits">4,000</td></tr>
+            <tr class="cat-sales"><td>Recordatorio Pagos</td><td>Twilio WA + Claude</td><td>cobros</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">800</td><td class="num credits">800</td><td class="num">1,500</td><td class="num credits">1,500</td></tr>
+            <tr class="cat-sales"><td>Cold Outreach</td><td>Gmail + Claude</td><td>emails</td><td class="num">$0.003</td><td class="num credits">0.3</td><td class="num">800</td><td class="num credits">240</td><td class="num">2,500</td><td class="num credits">750</td></tr>
+            <tr class="cat-sales"><td>Llamadas Voz</td><td>Twilio Voice + ElevenLabs</td><td>mins</td><td class="num">$0.05</td><td class="num credits">5</td><td class="num">200</td><td class="num credits">1,000</td><td class="num">500</td><td class="num credits">2,500</td></tr>
+            <tr class="cat-sales"><td>Propuestas</td><td>Claude + PDFKit</td><td>props</td><td class="num">$0.03</td><td class="num credits">3</td><td class="num">150</td><td class="num credits">450</td><td class="num">300</td><td class="num credits">900</td></tr>
+            <tr class="cat-sales"><td>Investigación Leads</td><td>Firecrawl + Claude</td><td>leads</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">400</td><td class="num credits">400</td><td class="num">800</td><td class="num credits">800</td></tr>
+            <tr class="cat-sales"><td>Guiones Llamada</td><td>Claude</td><td>guiones</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">250</td><td class="num credits">250</td><td class="num">500</td><td class="num credits">500</td></tr>
+            <tr class="cat-marketing"><td>Reels Guiones</td><td>Claude</td><td>guiones</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">250</td><td class="num credits">250</td><td class="num">500</td><td class="num credits">500</td></tr>
+            <tr class="cat-marketing"><td>ManyChat</td><td>ManyChat API</td><td>flows</td><td class="num">$0.00</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td></tr>
+            <tr class="cat-marketing"><td>Copy</td><td>Claude</td><td>textos</td><td class="num">$0.005</td><td class="num credits">0.5</td><td class="num">1,500</td><td class="num credits">750</td><td class="num">3,000</td><td class="num credits">1,500</td></tr>
+            <tr class="cat-marketing"><td>SEO</td><td>Firecrawl + Claude</td><td>análisis</td><td class="num">$0.02</td><td class="num credits">2</td><td class="num">200</td><td class="num credits">400</td><td class="num">400</td><td class="num credits">800</td></tr>
+            <tr class="cat-marketing"><td>Ads Manager</td><td>Meta API + Claude</td><td>campañas</td><td class="num">$0.05</td><td class="num credits">5</td><td class="num">75</td><td class="num credits">375</td><td class="num">150</td><td class="num credits">750</td></tr>
+            <tr class="cat-marketing"><td>Estrategia</td><td>Claude</td><td>estrategias</td><td class="num">$0.02</td><td class="num credits">2</td><td class="num">150</td><td class="num credits">300</td><td class="num">300</td><td class="num credits">600</td></tr>
+            <tr class="cat-marketing"><td>Instagram</td><td>IG Graph API + Claude</td><td>posts</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">400</td><td class="num credits">400</td><td class="num">800</td><td class="num credits">800</td></tr>
+            <tr class="cat-marketing"><td>LinkedIn</td><td>LinkedIn API + Claude</td><td>posts</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">250</td><td class="num credits">250</td><td class="num">500</td><td class="num credits">500</td></tr>
+            <tr class="cat-marketing"><td>Facebook</td><td>FB Graph API + Claude</td><td>posts</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">400</td><td class="num credits">400</td><td class="num">800</td><td class="num credits">800</td></tr>
+            <tr class="cat-marketing"><td>Google Ads</td><td>Google Ads API + Claude</td><td>campañas</td><td class="num">$0.05</td><td class="num credits">5</td><td class="num">75</td><td class="num credits">375</td><td class="num">150</td><td class="num credits">750</td></tr>
+            <tr class="cat-marketing"><td>Imágenes AI</td><td>Gemini Imagen 3</td><td>imgs</td><td class="num">$0.03</td><td class="num credits">3</td><td class="num">250</td><td class="num credits">750</td><td class="num">600</td><td class="num credits">1,800</td></tr>
+            <tr class="cat-marketing"><td>Email Marketing</td><td>Brevo/Mailchimp</td><td>campañas</td><td class="num">$0.00</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td><td class="num">∞</td><td class="num credits">0</td></tr>
+            <tr class="cat-marketing"><td>Analytics</td><td>GA4 API + Claude</td><td>reportes</td><td class="num">$0.02</td><td class="num credits">2</td><td class="num">150</td><td class="num credits">300</td><td class="num">300</td><td class="num credits">600</td></tr>
+            <tr class="cat-research"><td>Búsqueda Web</td><td>Firecrawl API</td><td>páginas</td><td class="num">$0.001</td><td class="num credits">0.1</td><td class="num">4,000</td><td class="num credits">400</td><td class="num">8,000</td><td class="num credits">800</td></tr>
+            <tr class="cat-research"><td>Investigación Mercado</td><td>Firecrawl + Claude</td><td>invest</td><td class="num">$0.02</td><td class="num credits">2</td><td class="num">200</td><td class="num credits">400</td><td class="num">400</td><td class="num credits">800</td></tr>
+            <tr class="cat-research"><td>Google Places</td><td>Places API (New)</td><td>búsquedas</td><td class="num">$0.017</td><td class="num credits">1.7</td><td class="num">400</td><td class="num credits">680</td><td class="num">800</td><td class="num credits">1,360</td></tr>
+            <tr class="cat-research"><td>Investigación Personas</td><td>Firecrawl + Claude</td><td>perfiles</td><td class="num">$0.02</td><td class="num credits">2</td><td class="num">200</td><td class="num credits">400</td><td class="num">400</td><td class="num credits">800</td></tr>
+            <tr class="cat-research"><td>Datos Académico</td><td>Firecrawl + arXiv</td><td>papers</td><td class="num">$0.01</td><td class="num credits">1</td><td class="num">250</td><td class="num credits">250</td><td class="num">500</td><td class="num credits">500</td></tr>
+            <tr class="cat-research"><td>Resumen</td><td>Claude + Whisper</td><td>resúmenes</td><td class="num">$0.02</td><td class="num credits">2</td><td class="num">400</td><td class="num credits">800</td><td class="num">750</td><td class="num credits">1,500</td></tr>
+            <tr class="cat-design"><td>Imagen Design</td><td>Gemini/DALL-E</td><td>imgs</td><td class="num">$0.04</td><td class="num credits">4</td><td class="num">150</td><td class="num credits">600</td><td class="num">400</td><td class="num credits">1,600</td></tr>
+            <tr class="cat-design"><td>Video AI</td><td>Gemini Veo 3.1</td><td>videos</td><td class="num">$0.15</td><td class="num credits">15</td><td class="num">75</td><td class="num credits">1,125</td><td class="num">200</td><td class="num credits">3,000</td></tr>
+            <tr class="cat-design"><td>Branding</td><td>Claude + Gemini</td><td>proyectos</td><td class="num">$0.10</td><td class="num credits">10</td><td class="num">40</td><td class="num credits">400</td><td class="num">75</td><td class="num credits">750</td></tr>
+            <tr class="cat-design"><td>Modelo 3D</td><td>Meshy.ai</td><td>modelos</td><td class="num">$0.20</td><td class="num credits">20</td><td class="num">40</td><td class="num credits">800</td><td class="num">100</td><td class="num credits">2,000</td></tr>
+            <tr class="cat-code"><td>Full Stack</td><td>Claude (heavy)</td><td>proyectos</td><td class="num">$1.00</td><td class="num credits">100</td><td class="num">20</td><td class="num credits">2,000</td><td class="num">40</td><td class="num credits">4,000</td></tr>
+            <tr class="cat-code"><td>Figma</td><td>Figma API + Claude</td><td>diseños</td><td class="num">$0.05</td><td class="num credits">5</td><td class="num">75</td><td class="num credits">375</td><td class="num">150</td><td class="num credits">750</td></tr>
+            <tr class="cat-code"><td>Testing QA</td><td>Claude + Playwright</td><td>tests</td><td class="num">$0.03</td><td class="num credits">3</td><td class="num">250</td><td class="num credits">750</td><td class="num">500</td><td class="num credits">1,500</td></tr>
+            <tr class="cat-code"><td>DevOps</td><td>Claude + Railway/Vercel</td><td>deploys</td><td class="num">$0.10</td><td class="num credits">10</td><td class="num">75</td><td class="num credits">750</td><td class="num">150</td><td class="num credits">1,500</td></tr>
+            <tr class="cat-code"><td>Conecta</td><td>Claude + REST APIs</td><td>integraciones</td><td class="num">$0.20</td><td class="num credits">20</td><td class="num">40</td><td class="num credits">800</td><td class="num">100</td><td class="num credits">2,000</td></tr>
+            <tr class="cat-extras"><td>Cobranza</td><td>Twilio WA + Claude</td><td>cobros</td><td class="num">$0.02</td><td class="num credits">2</td><td class="num">800</td><td class="num credits">1,600</td><td class="num">1,500</td><td class="num credits">3,000</td></tr>
+            <tr class="cat-extras"><td>Inventarios</td><td>Supabase + Claude</td><td>ops</td><td class="num">$0.005</td><td class="num credits">0.5</td><td class="num">1,500</td><td class="num credits">750</td><td class="num">3,000</td><td class="num credits">1,500</td></tr>
         </tbody>
+        <tfoot style="background: #334155; font-weight: bold;">
+            <tr>
+                <td colspan="5"></td>
+                <td class="num">TOTAL</td>
+                <td class="num credits">~25,000</td>
+                <td class="num">TOTAL</td>
+                <td class="num credits">~50,000</td>
+            </tr>
+        </tfoot>
     </table>
-    <p style="text-align:center;color:#666;margin-top:20px;">🧬 BJS Labs | Feb 2026</p>
+
+    <div class="info-box" style="margin-top: 30px;">
+        <h3>📊 Tablas en Supabase</h3>
+        <ul>
+            <li><strong>api_usage</strong> — Log de cada uso (org_id, skill, credits, status, timestamp)</li>
+            <li><strong>usage_limits</strong> — Límites custom por org (override de plan_limits)</li>
+            <li><strong>plan_limits</strong> — Límites default por plan (starter/pro × skill)</li>
+            <li><strong>usage_adjustments</strong> — Ajustes manuales (+créditos bonus, -correcciones)</li>
+        </ul>
+    </div>
+
+    <p style="text-align:center;color:#64748b;margin-top:30px;">🧬 BJS Labs | Feb 2026 | 1 crédito = $0.01 USD</p>
 </body>
 </html>
