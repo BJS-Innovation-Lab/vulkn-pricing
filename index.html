@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VULKN Pricing</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; padding: 20px; max-width: 1400px; margin: 0 auto; }
+        h1 { text-align: center; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { background: #333; color: white; padding: 8px; text-align: left; position: sticky; top: 0; }
+        td { padding: 6px 8px; border-bottom: 1px solid #ddd; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        .cat-corporate { border-left: 4px solid #3b82f6; }
+        .cat-sales { border-left: 4px solid #22c55e; }
+        .cat-marketing { border-left: 4px solid #f59e0b; }
+        .cat-research { border-left: 4px solid #a855f7; }
+        .cat-design { border-left: 4px solid #ec4899; }
+        .cat-code { border-left: 4px solid #6366f1; }
+        .cat-extras { border-left: 4px solid #64748b; }
+        .num { text-align: right; font-family: monospace; }
+        .summary { display: flex; gap: 20px; justify-content: center; margin: 20px 0; }
+        .card { background: #f1f5f9; padding: 15px 25px; border-radius: 8px; text-align: center; }
+        .card h3 { margin: 0 0 5px 0; }
+        .card .price { font-size: 24px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🔥 VULKN Skills Pricing</h1>
+    
+    <div class="summary">
+        <div class="card">
+            <h3>Starter</h3>
+            <div class="price">$20,000 MXN</div>
+            <div>Costo API: ~$32 USD | Margen: 97%</div>
+        </div>
+        <div class="card">
+            <h3>Pro</h3>
+            <div class="price">$40,000 MXN</div>
+            <div>Costo API: ~$185 USD | Margen: 92%</div>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Skill</th>
+                <th>API/Servicio</th>
+                <th>Unidad</th>
+                <th>$/Unidad</th>
+                <th>Starter Límite</th>
+                <th>Starter $</th>
+                <th>Pro Límite</th>
+                <th>Pro $</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="cat-corporate"><td>CRM</td><td>Supabase</td><td>registros</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
+            <tr class="cat-corporate"><td>Email Drafter</td><td>Gmail API + Anthropic</td><td>emails</td><td class="num">$0.002</td><td class="num">200</td><td class="num">$0.40</td><td class="num">1000</td><td class="num">$2.00</td></tr>
+            <tr class="cat-corporate"><td>Spreadsheets</td><td>Google Sheets API</td><td>ops</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
+            <tr class="cat-corporate"><td>Reuniones</td><td>Google Calendar API</td><td>eventos</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
+            <tr class="cat-corporate"><td>Citas</td><td>Calendar + Twilio WA</td><td>citas</td><td class="num">$0.005</td><td class="num">100</td><td class="num">$0.50</td><td class="num">500</td><td class="num">$2.50</td></tr>
+            <tr class="cat-corporate"><td>SAT/CFDI</td><td>Facturapi.io</td><td>facturas</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
+            <tr class="cat-corporate"><td>Presentaciones</td><td>Anthropic + Marp</td><td>slides</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">100</td><td class="num">$1.00</td></tr>
+            <tr class="cat-corporate"><td>Reportes</td><td>Anthropic + Sheets</td><td>reportes</td><td class="num">$0.02</td><td class="num">20</td><td class="num">$0.40</td><td class="num">100</td><td class="num">$2.00</td></tr>
+            <tr class="cat-corporate"><td>Gestión Proyectos</td><td>Notion API</td><td>tareas</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
+            <tr class="cat-corporate"><td>Atención Cliente</td><td>Twilio WA + Anthropic</td><td>convos</td><td class="num">$0.01</td><td class="num">300</td><td class="num">$3.00</td><td class="num">1500</td><td class="num">$15.00</td></tr>
+            <tr class="cat-corporate"><td>Contabilidad</td><td>Sheets + Anthropic</td><td>registros</td><td class="num">$0.005</td><td class="num">200</td><td class="num">$1.00</td><td class="num">1000</td><td class="num">$5.00</td></tr>
+            <tr class="cat-corporate"><td>Legal</td><td>Anthropic + Docs</td><td>docs</td><td class="num">$0.02</td><td class="num">10</td><td class="num">$0.20</td><td class="num">50</td><td class="num">$1.00</td></tr>
+            <tr class="cat-corporate"><td>Dashboard</td><td>QuickChart.io</td><td>gráficas</td><td class="num">$0.00</td><td class="num">50</td><td class="num">$0.00</td><td class="num">200</td><td class="num">$0.00</td></tr>
+            <tr class="cat-corporate"><td>Recordatorios</td><td>Telegram/Twilio WA</td><td>msgs</td><td class="num">$0.005</td><td class="num">100</td><td class="num">$0.50</td><td class="num">500</td><td class="num">$2.50</td></tr>
+            <tr class="cat-sales"><td>WhatsApp Business</td><td>Twilio WhatsApp API</td><td>msgs</td><td class="num">$0.005</td><td class="num">500</td><td class="num">$2.50</td><td class="num">3000</td><td class="num">$15.00</td></tr>
+            <tr class="cat-sales"><td>Recordatorio Pagos</td><td>Twilio WA + Anthropic</td><td>cobros</td><td class="num">$0.01</td><td class="num">100</td><td class="num">$1.00</td><td class="num">500</td><td class="num">$5.00</td></tr>
+            <tr class="cat-sales"><td>Cold Outreach</td><td>Gmail + Anthropic</td><td>emails</td><td class="num">$0.003</td><td class="num">100</td><td class="num">$0.30</td><td class="num">1000</td><td class="num">$3.00</td></tr>
+            <tr class="cat-sales"><td>Llamadas Voz</td><td>Twilio Voice + ElevenLabs</td><td>mins</td><td class="num">$0.05</td><td class="num">30</td><td class="num">$1.50</td><td class="num">300</td><td class="num">$15.00</td></tr>
+            <tr class="cat-sales"><td>Propuestas</td><td>Anthropic + PDFKit</td><td>props</td><td class="num">$0.03</td><td class="num">20</td><td class="num">$0.60</td><td class="num">100</td><td class="num">$3.00</td></tr>
+            <tr class="cat-sales"><td>Investigación Leads</td><td>Firecrawl + Anthropic</td><td>leads</td><td class="num">$0.01</td><td class="num">50</td><td class="num">$0.50</td><td class="num">300</td><td class="num">$3.00</td></tr>
+            <tr class="cat-sales"><td>Guiones Llamada</td><td>Anthropic</td><td>guiones</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">150</td><td class="num">$1.50</td></tr>
+            <tr class="cat-marketing"><td>Reels Guiones</td><td>Anthropic</td><td>guiones</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">150</td><td class="num">$1.50</td></tr>
+            <tr class="cat-marketing"><td>ManyChat</td><td>ManyChat API</td><td>flows</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td><td class="num">∞</td><td class="num">$0.00</td></tr>
+            <tr class="cat-marketing"><td>Copy</td><td>Anthropic</td><td>textos</td><td class="num">$0.005</td><td class="num">200</td><td class="num">$1.00</td><td class="num">1000</td><td class="num">$5.00</td></tr>
+            <tr class="cat-marketing"><td>SEO</td><td>Firecrawl + Anthropic</td><td>análisis</td><td class="num">$0.02</td><td class="num">30</td><td class="num">$0.60</td><td class="num">150</td><td class="num">$3.00</td></tr>
+            <tr class="cat-marketing"><td>Ads Manager</td><td>Meta API + Anthropic</td><td>campañas</td><td class="num">$0.05</td><td class="num">10</td><td class="num">$0.50</td><td class="num">50</td><td class="num">$2.50</td></tr>
+            <tr class="cat-marketing"><td>Estrategia</td><td>Anthropic</td><td>estrategias</td><td class="num">$0.02</td><td class="num">20</td><td class="num">$0.40</td><td class="num">100</td><td class="num">$2.00</td></tr>
+            <tr class="cat-marketing"><td>Instagram</td><td>IG Graph API + Anthropic</td><td>posts</td><td class="num">$0.01</td><td class="num">50</td><td class="num">$0.50</td><td class="num">250</td><td class="num">$2.50</td></tr>
+            <tr class="cat-marketing"><td>LinkedIn</td><td>LinkedIn API + Anthropic</td><td>posts</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">150</td><td class="num">$1.50</td></tr>
+            <tr class="cat-marketing"><td>Facebook</td><td>FB Graph API + Anthropic</td><td>posts</td><td class="num">$0.01</td><td class="num">50</td><td class="num">$0.50</td><td class="num">250</td><td class="num">$2.50</td></tr>
+            <tr class="cat-marketing"><td>Google Ads</td><td>Google Ads API + Anthropic</td><td>campañas</td><td class="num">$0.05</td><td class="num">10</td><td class="num">$0.50</td><td class="num">50</td><td class="num">$2.50</td></tr>
+            <tr class="cat-marketing"><td>Imágenes AI</td><td>Gemini Imagen 3</td><td>imgs</td><td class="num">$0.03</td><td class="num">30</td><td class="num">$0.90</td><td class="num">200</td><td class="num">$6.00</td></tr>
+            <tr class="cat-marketing"><td>Email Marketing</td><td>Brevo/Mailchimp</td><td>campañas</td><td class="num">$0.00</td><td class="num">20</td><td class="num">$0.00</td><td class="num">100</td><td class="num">$0.00</td></tr>
+            <tr class="cat-marketing"><td>Analytics</td><td>GA4 API + Anthropic</td><td>reportes</td><td class="num">$0.02</td><td class="num">20</td><td class="num">$0.40</td><td class="num">100</td><td class="num">$2.00</td></tr>
+            <tr class="cat-research"><td>Búsqueda Web</td><td>Firecrawl API</td><td>páginas</td><td class="num">$0.001</td><td class="num">500</td><td class="num">$0.50</td><td class="num">3000</td><td class="num">$3.00</td></tr>
+            <tr class="cat-research"><td>Investigación Mercado</td><td>Firecrawl + Anthropic</td><td>invest</td><td class="num">$0.02</td><td class="num">30</td><td class="num">$0.60</td><td class="num">150</td><td class="num">$3.00</td></tr>
+            <tr class="cat-research"><td>Google Places</td><td>Places API (New)</td><td>búsquedas</td><td class="num">$0.017</td><td class="num">50</td><td class="num">$0.85</td><td class="num">300</td><td class="num">$5.10</td></tr>
+            <tr class="cat-research"><td>Investigación Personas</td><td>Firecrawl + Anthropic</td><td>perfiles</td><td class="num">$0.02</td><td class="num">30</td><td class="num">$0.60</td><td class="num">150</td><td class="num">$3.00</td></tr>
+            <tr class="cat-research"><td>Datos Académico</td><td>Firecrawl + arXiv</td><td>papers</td><td class="num">$0.01</td><td class="num">30</td><td class="num">$0.30</td><td class="num">150</td><td class="num">$1.50</td></tr>
+            <tr class="cat-research"><td>Resumen</td><td>Anthropic + Whisper</td><td>resúmenes</td><td class="num">$0.02</td><td class="num">50</td><td class="num">$1.00</td><td class="num">250</td><td class="num">$5.00</td></tr>
+            <tr class="cat-design"><td>Imagen Design</td><td>Gemini/DALL-E</td><td>imgs</td><td class="num">$0.04</td><td class="num">20</td><td class="num">$0.80</td><td class="num">150</td><td class="num">$6.00</td></tr>
+            <tr class="cat-design"><td>Video AI</td><td>Gemini Veo 3.1</td><td>videos</td><td class="num">$0.15</td><td class="num">10</td><td class="num">$1.50</td><td class="num">75</td><td class="num">$11.25</td></tr>
+            <tr class="cat-design"><td>Branding</td><td>Anthropic + Gemini</td><td>proyectos</td><td class="num">$0.10</td><td class="num">5</td><td class="num">$0.50</td><td class="num">25</td><td class="num">$2.50</td></tr>
+            <tr class="cat-design"><td>Modelo 3D</td><td>Meshy.ai</td><td>modelos</td><td class="num">$0.20</td><td class="num">5</td><td class="num">$1.00</td><td class="num">30</td><td class="num">$6.00</td></tr>
+            <tr class="cat-code"><td>Full Stack</td><td>Anthropic (heavy)</td><td>proyectos</td><td class="num">$1.00</td><td class="num">3</td><td class="num">$3.00</td><td class="num">15</td><td class="num">$15.00</td></tr>
+            <tr class="cat-code"><td>Figma</td><td>Figma API + Anthropic</td><td>diseños</td><td class="num">$0.05</td><td class="num">10</td><td class="num">$0.50</td><td class="num">50</td><td class="num">$2.50</td></tr>
+            <tr class="cat-code"><td>Testing QA</td><td>Anthropic + Playwright</td><td>tests</td><td class="num">$0.03</td><td class="num">30</td><td class="num">$0.90</td><td class="num">150</td><td class="num">$4.50</td></tr>
+            <tr class="cat-code"><td>DevOps</td><td>Anthropic + Railway/Vercel</td><td>deploys</td><td class="num">$0.10</td><td class="num">10</td><td class="num">$1.00</td><td class="num">50</td><td class="num">$5.00</td></tr>
+            <tr class="cat-code"><td>Conecta</td><td>Anthropic + REST APIs</td><td>integraciones</td><td class="num">$0.20</td><td class="num">5</td><td class="num">$1.00</td><td class="num">30</td><td class="num">$6.00</td></tr>
+            <tr class="cat-extras"><td>Cobranza</td><td>Twilio WA + Anthropic</td><td>cobros</td><td class="num">$0.02</td><td class="num">100</td><td class="num">$2.00</td><td class="num">500</td><td class="num">$10.00</td></tr>
+            <tr class="cat-extras"><td>Inventarios</td><td>Supabase + Anthropic</td><td>ops</td><td class="num">$0.005</td><td class="num">200</td><td class="num">$1.00</td><td class="num">1000</td><td class="num">$5.00</td></tr>
+        </tbody>
+    </table>
+    <p style="text-align:center;color:#666;margin-top:20px;">🧬 BJS Labs | Feb 2026</p>
+</body>
+</html>
